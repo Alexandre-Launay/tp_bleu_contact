@@ -1,0 +1,8 @@
+window_sizes 2547 1218 600 1942 1068 104
+
+show_stereotypes
+selected sequencediagram_ref 128262 // RssSeqDiag
+open
+  usecaseview_ref 128002 // uc
+end
+end
