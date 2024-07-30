@@ -3,7 +3,7 @@
 class ViewRss {
 
     private $partials = "rss/partials/";
-    function afficherRss($data){
+    function afficherRss($data, $flux){
         $partial = $this->partials . "rss.html";
         include Conf::$templates . "template.html";
     }

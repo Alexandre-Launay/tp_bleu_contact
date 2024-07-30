@@ -28,5 +28,9 @@ class Conf
 
     public static $url = "https://www.prevision-meteo.ch/services/json/";
 
-    public static $rss = "https://www.jeuxvideo.com/rss/rss.xml";
+    public static $fluxRss = array(
+        "ActusJeux" => "https://www.jeuxvideo.com/rss/rss.xml",
+        "ActusPS5" => "https://www.jeuxvideo.com/rss/rss-ps5.xml",
+        "NewsJO" => "https://www.francetvinfo.fr/les-jeux-olympiques.rss"
+    );
 }

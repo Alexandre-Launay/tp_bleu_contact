@@ -3,10 +3,9 @@ date_default_timezone_set('Europe/Paris');
 ?>
 
 <h1><?= $data['channel']['description'] ?></h1>
-<p>Retrouver toute l'actualités, les news sur 
-    <a href="<?= $data['channel']['link'] ?>" target="_blank">
-        <img width="100" src="<?= $data['channel']['image']['url'] ?>" alt="www.Jeuxvideo.com">
-    </a>
+<p>Retrouver toute l'actualités, les news sur <a href="<?= $data['channel']['link'] ?>" target="_blank"></a>
+    <?= ($flux != "NewsJO") ?   '<a href="' . $data["channel"]["link"] . '" target="_blank"><img width="100" src="' . $data["channel"]["image"]["url"] . '" alt="www.Jeuxvideo.com"></a>' :
+                                '<a href="'. $data["channel"]["link"] . '" target="_blank">JO PARIS 2024</a>' ?>
 </p>
 <?php foreach ($data['channel']['item'] as $item) : ?>
     <div class="card shadow-sm mt-4">
@@ -15,9 +14,11 @@ date_default_timezone_set('Europe/Paris');
         <img class="card-img-top" type="<?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
 
         <div class="card-body row">
-            <h5 class="<?= (str_contains($items['category'], 'culture')) ? 'text-primary' : 'text-warning' ?> col-6 text-start"><?= $item['category'] ?></h5>
-            <p class="text-muted col-6 text-end"> Publié le : <?php $date = new DateTime($item['pubDate'], new DateTimeZone('Europe/Paris'));
-                                                                echo $date->add(new DateInterval('PT2H'))->format('d-m-Y H:i:s'); ?></p>
+        <?= ($flux == "NewsJO") ? "" : "<h5 class='" . (str_contains($item['category'], 'culture') ? 'text-primary' : 'text-warning') . "' > " . $item['category'] . "</h5>"?>
+
+
+
+            <p class="text-muted <?= ($flux != "NewsJO") ? "col-6" : "col-12" ?> text-end"> Publié le : <?= $item['pubDate'] ?></p>
             <h6 class="card-title col-8"><?= $item['title'] ?></h6>
             <p class="card-text col-12"><?= $item['description'] ?></p>
         </div>
@@ -30,6 +31,5 @@ date_default_timezone_set('Europe/Paris');
                 <a class="btn btn-primary" href="<?= $item['link'] ?>">Lire la suite</a>
             </div>
         </div>
-
     </div>
 <?php endforeach ?>

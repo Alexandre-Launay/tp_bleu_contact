@@ -10,14 +10,14 @@ class CtrlRss
         $this->vue = new ViewRss();
     }
 
-    function getRSS()
+    function getRSS($flux)
     {
-        $data = $this->model->selectRss();
-        var_dump($data['channel']);
+        $data = $this->model->selectRss($flux);
+        // print_r($data);
         // -------------------------------------------------- //
 
         if ($data) {
-            $this->vue->afficherRss($data);
+            $this->vue->afficherRss($data, $flux);
         } else {
             $this->vue->afficherErrorRss();
         }

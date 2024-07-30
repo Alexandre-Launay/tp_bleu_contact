@@ -27,10 +27,6 @@ if ($arg){
     $ctrl->$methode();
 }
 
-
-   
-
-
 exit;
 
 /* if(isset($_GET['p']) && $_GET['p'] == "form"){
