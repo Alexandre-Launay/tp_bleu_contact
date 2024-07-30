@@ -1,10 +1,12 @@
-window_sizes 1800 903 450 1345 776 81
+window_sizes 1920 1009 450 1465 882 81
 
 diagrams
+  usecasediagram_ref 128006 // RssUseCase
+    1172 705 119 A4 80 0
   classdiagram_ref 128134 // RssClassDiag
-    1076 602 119 A4 191 0
+    114 86 150 A4 199 0
   active  sequencediagram_ref 128262 // RssSeqDiag
-    1345 776 119 A4 21 0
+    1465 882 130 A4 8 0
 end
 show_stereotypes
 selected sequencediagram_ref 128262 // RssSeqDiag

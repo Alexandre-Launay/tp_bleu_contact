@@ -19,7 +19,7 @@ class Conf
         "page",
         "authentification",
         "meteo",
-        "rss"
+        "rss",
     );
 
     public static $templates = "templates/";
@@ -33,4 +33,25 @@ class Conf
         "ActusPS5" => "https://www.jeuxvideo.com/rss/rss-ps5.xml",
         "NewsJO" => "https://www.francetvinfo.fr/les-jeux-olympiques.rss"
     );
+
+    public static $team = [
+        [
+            "nom" => "Bettioui",
+            "prenom" => "Chloé",
+            "description" => "I'm a 🐈",
+            "image_path" => "images/chloe.jpg"
+        ],
+        [
+            "nom" => "Launay",
+            "prenom" => "Alexandre",
+            "description" => "I'm a 🐐",
+            "image_path" => "images/alex.jpg"
+        ],
+        [
+            "nom" => "Langlois-Hérault",
+            "prenom" => "Dylan",
+            "description" => "I'm a 👻 !",
+            "image_path" => "images/dylan.jpg"
+        ],
+    ];
 }

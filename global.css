@@ -1,0 +1,11 @@
+:root {
+  --bs-light-beige: #FDF7E4;
+  --bs-beige: #DED0B6;
+  --bs-blue: #8576FF;
+  --bs-font-serif: "montserrat", serif;
+  --bs-font-sans-serif:"montserrat", sans-serif;
+}
+
+body {
+    background-color: var(--bs-light-beige);
+}

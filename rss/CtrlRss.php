@@ -13,7 +13,7 @@ class CtrlRss
     function getRSS($flux)
     {
         $data = $this->model->selectRss($flux);
-        // print_r($data);
+        // var_dump($data);
         // -------------------------------------------------- //
 
         if ($data) {

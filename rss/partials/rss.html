@@ -7,6 +7,8 @@ date_default_timezone_set('Europe/Paris');
     <?= ($flux != "NewsJO") ?   '<a href="' . $data["channel"]["link"] . '" target="_blank"><img width="100" src="' . $data["channel"]["image"]["url"] . '" alt="www.Jeuxvideo.com"></a>' :
                                 '<a href="'. $data["channel"]["link"] . '" target="_blank">JO PARIS 2024</a>' ?>
 </p>
+
+
 <?php foreach ($data['channel']['item'] as $item) : ?>
     <div class="card shadow-sm mt-4">
 
@@ -14,7 +16,7 @@ date_default_timezone_set('Europe/Paris');
         <img class="card-img-top" type="<?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
 
         <div class="card-body row">
-        <?= ($flux == "NewsJO") ? "" : "<h5 class='" . (str_contains($item['category'], 'culture') ? 'text-primary' : 'text-warning') . "' > " . $item['category'] . "</h5>"?>
+        <?= ($flux == "NewsJO") ? "" : "<h5 class='" . (str_contains($item['category'], 'culture') ? 'text-primary' : 'text-warning') . " col-6 text-start" . "' > " . $item['category'] . "</h5>"?>
 
 
 
@@ -25,7 +27,7 @@ date_default_timezone_set('Europe/Paris');
 
         <div class="card-footer bg-light row m-0">
             <div class="col-6 d-flex justify-content-start align-content-center">
-                <p class=""><?= $data['channel']['copyright'] ?></p>
+                <p class=""><?= ($flux != "NewsJO") ? ($data['channel']['copyright']) : "" ?></p>
             </div>
             <div class="col-6 text-end p-0">
                 <a class="btn btn-primary" href="<?= $item['link'] ?>">Lire la suite</a>

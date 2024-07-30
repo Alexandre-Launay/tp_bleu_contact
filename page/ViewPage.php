@@ -15,4 +15,9 @@ class ViewPage {
         }
         include Conf::$templates . "template.html";
     }
+
+    function quiSommesNous($team){
+        $partial = $this->partials . "quisommesnous.html";
+        include Conf::$templates . "template.html";
+    }
 }

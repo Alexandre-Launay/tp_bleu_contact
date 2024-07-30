@@ -15,8 +15,14 @@ class CtrlPage
         $this->getPage('accueil');
     }
 
+
     function getPage($page = "404")
     {
         $this->vue->afficherPage($page);
+    }
+
+    function quiSommesNous()
+    {
+        $this->vue->quiSommesNous(Conf::$team);
     }
 }
