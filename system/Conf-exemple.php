@@ -7,10 +7,10 @@ class Conf
     public static $civilite_mademoiselle = 3;
 
     public static $bdd = array(
-        'host' => "localhost",
-        'user' => "root",
-        'pass' => "",
-        'database' => "dwwm23530_contact",
+        'host' => "ici/ton/adresse/de/bdd",
+        'user' => "ici/ton/nom/de/user",
+        'pass' => "ici/ton/password/PhpMyAdmin",
+        'database' => "ici/ton/nom/de/database",
         'port' => 3306
     );
 
@@ -19,7 +19,8 @@ class Conf
         "system",
         "page",
         "authentification",
-        "meteo"
+        "meteo",
+        "rss",
     );
 
     public static $templates = "templates/";
@@ -27,4 +28,19 @@ class Conf
     public static $salt = "Ceci est moN Grian de Sel";
 
     public static $url = "https://www.prevision-meteo.ch/services/json/";
+
+    public static $fluxRss = array(
+        "ActusJeux" => "https://www.jeuxvideo.com/rss/rss.xml",
+        "ActusPS5" => "https://www.jeuxvideo.com/rss/rss-ps5.xml",
+        "NewsJO" => "https://www.francetvinfo.fr/les-jeux-olympiques.rss"
+    );
+
+    public static $team = [
+        [
+            "nom" => "Doe",
+            "prenom" => "John",
+            "description" => "I'm a 🐈",
+            "image_path" => "images/JohnDoe.jpg"
+        ]
+    ];
 }
