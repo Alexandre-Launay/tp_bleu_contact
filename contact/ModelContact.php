@@ -103,6 +103,7 @@ JOIN objet AS o ON co.id_objet = o.id_objet");
 
         return $result->fetch_assoc();
     }
+    
     function updateContact($id,$enreg){
         return $this->dao->requete("UPDATE `contact` SET `nom` = '{$enreg['nom']}', `prenom` = '{$enreg['prenom']}', `message` = '{$enreg['message']}', `id_civilite` = '{$enreg['id_civilite']}', `id_objet` = '{$enreg['id_objet']}' WHERE `contact`.`id_contact` = $id;");
     }

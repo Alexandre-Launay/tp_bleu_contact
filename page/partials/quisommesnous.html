@@ -1,19 +1,16 @@
-<?php // var_dump($team); ?>
-<div class="container">
-
-<?php foreach($team as $member) : ?>
-
-    <!-- <?php  // var_dump($member); ?>  -->
-
-    <?= $member['nom']; ?>
-    <?= $member['prenom']; ?>
-    <?= $member['description']; ?>
-
-    <img src="<?= $member['image_path']; ?>" alt="<?= $member['prenom']; ?>">
+<?php // var_dump($team); 
+?>
+<?php foreach ($team as $member) : ?>
+    <div class="member">
+        <!-- <?php  // var_dump($member); 
+                ?>  -->
+        <div class="card-content">
+            <?= $member['nom']; ?>
+            <?= $member['prenom']; ?>
+            <?= $member['description']; ?>
+        </div>
+        <div class="card-img">
+            <img src="<?= $member['image_path']; ?>" alt="<?= $member['prenom']; ?>">
+        </div>
+    </div>
 <?php endforeach ?>
-
-
-
-
-
-

@@ -1,0 +1,76 @@
+:root {
+  --bs-light-beige: #fffaf1;
+  --bs-beige: #DED0B6;
+  --bs-blue: #8576FF;
+  --bs-font-serif: "montserrat", serif;
+  --bs-font-sans-serif:"montserrat", sans-serif;
+}
+
+/* Custom Class CSS */
+
+.text-blue {
+  color: var(--bs-blue)!important;
+}
+
+.btn-blue {
+  background-color: var(--bs-blue);
+  color: var(--bs-light-beige);
+}
+
+.btn-blue:hover {
+  color: var(--bs-blue);
+}
+
+.btn-outline-blue {
+  border-color: var(--bs-blue);
+  color: var(--bs-blue); 
+}
+
+.btn-outline-blue:hover {
+  border-color: var(--bs-light-beige);
+  color: var(--bs-light-beige);
+}
+
+
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+/* CSS */
+
+body {
+  background-color: var(--bs-light-beige);
+}
+
+nav {
+  background-color: var(--bs-beige)!important;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bs-beige);
+  border-radius: 10px;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card-content{
+text-align: center;
+margin-bottom: 15px;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

@@ -1,9 +1,8 @@
 <?php
 
-class DAO_RSS implements DAO {
-
-    
-        function requete($rss)
+class Controller
+{
+    function xmlToArray($rss)
     {
         $xml = simplexml_load_file($rss,'SimpleXMLElement', LIBXML_NOCDATA);
         $array = json_decode(json_encode($xml), TRUE);
@@ -18,6 +17,5 @@ class DAO_RSS implements DAO {
             // return json_decode($array, true);
             return $array;
         }
-
     }
 }

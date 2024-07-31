@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" style="padding: 0;" href="">
             <img src="/images/logo.jpg" width="70px" alt="logo">
@@ -47,29 +47,29 @@
                         Flux Rss
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/CtrlRss/getRss/ActusJeux">Actus Jeux</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="/CtrlRss/getRss/ActusPS5">Actus PS5</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <ul><a class="dropdown-item" href="/CtrlRss/getRss/NewsJO">J.O</a></ul>
-                        <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        <?php foreach (Conf::$fluxRss as $flux => $value) : ?>
+                            <li><a class="dropdown-item" href="/CtrlRss/getRss/<?= $flux ?>"><?= $flux ?></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        <?php endforeach ?>
                     </ul>
                 </li>
+
+
 
                 <!-- Qui-sommes-nous ? -->
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/CtrlPage/quiSommesNous">Qui sommes-nous ?</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/CtrlRss/afficherListRss">Flux Rss</a>
                 </li>
                 
             </ul>
             <form class="d-flex" role="search" action="/CtrlMeteo/getMeteo" method="POST">
                 <input class="form-control me-2" name="ville" type="search" placeholder="Saisir une Ville"
                     aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Météo</button>
+                <button class="btn btn-blue" type="submit">Météo</button>
             </form>
 
             <ul class="navbar-nav">

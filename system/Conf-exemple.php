@@ -32,7 +32,9 @@ class Conf
     public static $fluxRss = array(
         "ActusJeux" => "https://www.jeuxvideo.com/rss/rss.xml",
         "ActusPS5" => "https://www.jeuxvideo.com/rss/rss-ps5.xml",
-        "NewsJO" => "https://www.francetvinfo.fr/les-jeux-olympiques.rss"
+        "NewsJO" => "https://www.francetvinfo.fr/les-jeux-olympiques.rss",
+        "ActusPS4" => "https://www.jeuxvideo.com/rss/rss-ps4.xml",
+        "MotorSport" => "https://fr.motorsport.com/rss/all/news/"
     );
 
     public static $team = [

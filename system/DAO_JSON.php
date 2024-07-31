@@ -2,6 +2,7 @@
 
 class DAO_JSON implements DAO {
 
+    
     function requete($url)
     {
         $json = @file_get_contents($url);
@@ -12,6 +13,5 @@ class DAO_JSON implements DAO {
         else {
             return json_decode($json, true);
         }
-
     }
 }
