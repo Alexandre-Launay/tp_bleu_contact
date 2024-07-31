@@ -1,6 +1,6 @@
 <?php 
 
-class CtrlRss extends Controller
+class CtrlRss
 {
     private $model;
     private $vue;
@@ -13,12 +13,11 @@ class CtrlRss extends Controller
     function getRss($id)
     {
         $data = $this->model->selectRssById($id);
-        $flux = $this->xmlToArray($data['xml_path']);
         // var_dump($data['xml_path']);
         // -------------------------------------------------- //
 
         if ($data) {
-            $this->vue->afficherRss($flux);
+            $this->vue->afficherRss($data);
         } else {
             $this->vue->afficherErrorRss();
         }

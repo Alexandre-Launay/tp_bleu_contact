@@ -1,6 +1,6 @@
 <?php
 
-class Controller
+class Model
 {
     function xmlToArray($rss)
     {

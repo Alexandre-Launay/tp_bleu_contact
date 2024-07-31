@@ -11,15 +11,18 @@
             <th scope="row"><?= $rss['id_rss'] ?></th>
             <td><?= $rss['titre'] ?></td>
             <td><?= $rss['xml_path'] ?></td>
-            <td>
-            <a class="btn btn-blue" href="/CtrlRss/getRss/<?= $rss['id_rss'] ?>">O</a>
-                <form action="/CtrlRss/delete/<?= $rss['id_rss'] ?>" method="post">
-                    <input type="hidden" name="valid" value="<?= $rss['id_rss'] ?>" />
-                    <button class="btn btn-danger" onclick="return confirm('êtes-vous sûr ?')"><i class="bi bi-trash"></i></button>
-                </form>
+            <td class="d-flex gap-2">
+                <a class="btn btn-blue" href="/CtrlRss/getRss/<?= $rss['id_rss'] ?>">O</a>
+                <?php if (Session::getUser() && (Session::getUser()->role == "admin")) : ?>
+                    <form action="/CtrlRss/delete/<?= $rss['id_rss'] ?>" method="post">
+                        <input type="hidden" name="valid" value="<?= $rss['id_rss'] ?>" />
+                        <button class="btn btn-danger" onclick="return confirm('êtes-vous sûr ?')"><i class="bi bi-trash"></i></button>
+                    </form>
+                <?php endif ?>
             </td>
         </tr>
     <?php endforeach ?>
 </table>
-
-<a class="btn btn-blue" href="/CtrlRss/getForm">Ajouter un flux</a>
+<?php if (Session::getUser() && (Session::getUser()->role == "admin" )) : ?>
+    <a class="btn btn-blue" href="/CtrlRss/getForm">Ajouter un flux</a>
+<?php endif ?>
