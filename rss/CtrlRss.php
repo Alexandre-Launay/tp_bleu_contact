@@ -15,7 +15,6 @@ class CtrlRss
         $data = $this->model->selectRssById($id);
         // var_dump($data['xml_path']);
         // -------------------------------------------------- //
-
         if ($data) {
             $this->vue->afficherRss($data);
         } else {

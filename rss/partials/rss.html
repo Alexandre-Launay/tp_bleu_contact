@@ -19,7 +19,11 @@ date_default_timezone_set('Europe/Paris');
 
 <?php foreach ($data['channel']['item'] as $item) : ?>
     <div class="card shadow-sm mt-4">
-        <img class="card-img-top" type="<?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
+        <img class="card-img-top" type="
+
+            <?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
+
+
         <div class="card-body row">
             <?php if (isset($item['category'])) : ?>
                 <h5 class="col-6 text-blue">
@@ -40,12 +44,12 @@ date_default_timezone_set('Europe/Paris');
         </div>
 
         <div class="card-footer bg-light row m-0">
-            <div class="col-6 d-flex justify-content-start align-content-center">
-                <p class=""><?= (isset($data['channel']['copyright'])) ? ($data['channel']['copyright']) : "" ?></p>
-            </div>
+            <div class="col-6 hidden d-flex justify-content-start align-content-center"></div>
             <div class="col-6 text-end p-0">
                 <a class="btn btn-primary" href="<?= $item['link'] ?>">Lire la suite</a>
             </div>
         </div>
     </div>
 <?php endforeach ?>
+
+<p><?= (isset($data['channel']['copyright'])) ? ($data['channel']['copyright']) : "" ?></p>
