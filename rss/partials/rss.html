@@ -1,55 +1,60 @@
 <?php
 date_default_timezone_set('Europe/Paris');
-?>
+// ?>
 
-<?php if (isset($data['channel']['description'])) : ?>
-    <h1><?= $data['channel']['description'] ?></h1>
+<?php if (isset($data['rss']['channel']['description'])) : ?>
+    <h1><?= $data['rss']['channel']['description'] ?></h1>
 <?php else : ?>
-    <h1>Le média de référence - <?= $data['channel']['title'] ?></h1>
+    <h1>Le média de référence - <?= $data['rss']['channel']['title'] ?></h1>
 <?php endif ?>
-<p>Retrouver toute l'actualités, les news sur <a href="<?= $data['channel']['link'] ?>" target="_blank"></a>
-    <a href="<?= $data["channel"]["link"] ?>">
-        <?php if (isset($data["channel"]["image"])) : ?>
-            <img width="100" src="<?= $data["channel"]["image"]['url'] ?>" alt="<?= $data["channel"]["image"]['title'] ?>">
+<p>Retrouver toute l'actualités, les news sur <a href="<?= $data['rss']['channel']['link'] ?>" target="_blank"></a>
+    <a href="<?= $data["rss"]["channel"]["link"] ?>">
+        <?php if (isset($data['rss']["channel"]["image"])) : ?>
+            <img width="100" src="<?= $data["rss"]["channel"]["image"]['url'] ?>" alt="<?= $data['rss']["channel"]["image"]['title'] ?>">
         <?php else : ?>
-            <?= $data['channel']['title'] ?>
+            <?= $data['rss']['channel']['title'] ?>
         <?php endif ?>
     </a>
 </p>
 
-<?php foreach ($data['channel']['item'] as $item) : ?>
-    <div class="card shadow-sm mt-4">
-        <img class="card-img-top" type="
+<?php $i=0 ?>
+<?php foreach ($data['rss']['channel']['item'] as $item)  : ?>
+    <div class="card shadow-sm mt-4"> 
+    <?php if (isset($item['enclosure']['@attributes']['url'] )) : ?>
+        <img class="card-img-top" type="<?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
+    <?php else : ?>
+        <img class="card-img-top" src="<?= $data['media'][$i++]['@attributes']['url'] ?>" />
+    <?php endif ?>
 
-            <?= $item['enclosure']['@attributes']['type'] ?>" src="<?= $item['enclosure']['@attributes']['url'] ?>" />
 
 
-        <div class="card-body row">
-            <?php if (isset($item['category'])) : ?>
-                <h5 class="col-6 text-blue">
-                    <?php if (is_array($item['category'])) : ?>
-                        <?php foreach ($item['category'] as $cat) : ?> 
-                            <?= $cat . " |" ?>
-                        <?php endforeach ?>
-                    <?php else : ?>
-                        <?= "| " . $item['category'] . " |" ?>
-                    <?php endif ?>
-                </h5>
-            <?php else : ?>
-                <span class="hidden col-6"></span>
-            <?php endif ?>
-            <p class="text-muted col-6 text-end"> Publié le : <?= $item['pubDate'] ?></p>
-            <h6 class="card-title col-8"><?= $item['title'] ?></h6>
-            <p class="card-text col-12"><?= $item['description'] ?></p>
+
+    <div class="card-body row">
+        <?php if (isset($item['category'])) : ?>
+            <h5 class="col-6 text-blue">
+                <?php if (is_array($item['category'])) : ?>
+                    <?php foreach ($item['category'] as $cat) : ?>
+                        <?= $cat . " |" ?>
+                    <?php endforeach ?>
+                <?php else : ?>
+                    <?= "| " . $item['category'] . " |" ?>
+                <?php endif ?>
+            </h5>
+        <?php else : ?>
+            <span class="hidden col-6"></span>
+        <?php endif ?>
+        <p class="text-muted col-6 text-end"> Publié le : <?= $item['pubDate'] ?></p>
+        <h6 class="card-title col-8"><?= $item['title'] ?></h6>
+        <p class="card-text col-12"><?= $item['description'] ?></p>
+    </div>
+
+    <div class="card-footer bg-light row m-0">
+        <div class="col-6 hidden d-flex justify-content-start align-content-center"></div>
+        <div class="col-6 text-end p-0">
+            <a class="btn btn-primary" href="<?= $item['link'] ?>">Lire la suite</a>
         </div>
-
-        <div class="card-footer bg-light row m-0">
-            <div class="col-6 hidden d-flex justify-content-start align-content-center"></div>
-            <div class="col-6 text-end p-0">
-                <a class="btn btn-primary" href="<?= $item['link'] ?>">Lire la suite</a>
-            </div>
-        </div>
+    </div>
     </div>
 <?php endforeach ?>
 
-<p><?= (isset($data['channel']['copyright'])) ? ($data['channel']['copyright']) : "" ?></p>
+<p><?= (isset($data['rss']['channel']['copyright'])) ? ($data['rss']['channel']['copyright']) : "" ?></p>
