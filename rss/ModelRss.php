@@ -1,18 +1,31 @@
 <?php
 
-
 class ModelRss extends Model
 {
+    /**
+     * @var DAO_MySqli
+     */
     private $daoSQL;
+
+    /**
+     * @var DAO_RSS
+     */
     private $daoRss;
 
+    /**
+     * ModelRss constructor.
+     */
     function __construct()
     {
         $this->daoSQL = new DAO_MySqli();
         $this->daoRss = new DAO_RSS();
     }
 
-    function selectRssById($id)
+    /**
+     * Function used to select a rss by id from the database
+     * @param string $id
+     */
+    function selectRssById(string $id)
     {
         $data = [];
         $mediaObject = [];
@@ -42,7 +55,9 @@ class ModelRss extends Model
     }
 
 
-
+    /**
+     * Function used to select all rss from the database
+     */
     function selectAllRss()
     {
         $result = $this->daoSQL->requete("SELECT * FROM `rss`;");
@@ -55,12 +70,20 @@ class ModelRss extends Model
         return $fluxRss;
     }
 
-    function inserer($enreg)
+    /**
+     * Function used to insert an rss in the database
+     * @param array $enreg
+     */
+    function inserer(array $enreg)
     {
         return $this->daoSQL->requete("INSERT INTO `rss` (`titre`, `xml_path`) VALUES ('{$enreg['titre']}', '{$enreg['xml_path']}')");
     }
 
-    function delete($id)
+    /**
+     * Function used to delete an rss from the database
+     * @param string $id
+     */
+    function delete(string $id)
     {
         return $this->daoSQL->requete("DELETE FROM rss WHERE id_rss=$id");
     }

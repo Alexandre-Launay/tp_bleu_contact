@@ -24,6 +24,8 @@ class CtrlAuthentification {
         $user = $this->model->selectUser($_POST['login'],$_POST['password']);
         if (is_object($user)){
             Session::setUser($user);
+            // var_dump($user);
+            // die();
             $this->vue->afficherLoginOk();
 
         } else {

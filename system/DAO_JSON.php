@@ -2,7 +2,10 @@
 
 class DAO_JSON implements DAO {
 
-    function requete($url)
+    /** function to request a json
+     * @param string $url
+     */
+    function requete(string $url)
     {
         $json = @file_get_contents($url);
         if (!$json)

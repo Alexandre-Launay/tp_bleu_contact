@@ -1,16 +1,25 @@
 <?php
 class DAO_MySqli implements DAO
 {
+    
+    /**
+     * @var object $mysqli
+     */
+    private object $mysqli;
 
-    private $mysqli;
-
+    /**
+     * MySqli's constructor
+     */
     function __construct()
     {
-        // connexion
         $this->mysqli = new mysqli(Conf::$bdd['host'], Conf::$bdd['user'], Conf::$bdd['pass'], Conf::$bdd['database']);
     }
 
-    function requete($sql)
+    /**
+     * function to request in sql DB
+     * @param string $sql
+     */
+    function requete(string $sql)
     {
         // echo $sql;
         try {

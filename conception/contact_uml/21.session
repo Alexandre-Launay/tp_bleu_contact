@@ -1,11 +1,7 @@
 window_sizes 1920 1009 334 1581 882 81
 
-diagrams
-  active  sequencediagram_ref 128262 // RssSeqDiag
-    1465 882 80 A4 91 0
-end
 show_stereotypes
-selected usecase_ref 128002 // contact
+selected classdiagram_ref 148098 // meteo
 open
   class_ref 128390 // ViewRss
 end

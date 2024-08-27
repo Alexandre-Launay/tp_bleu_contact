@@ -1,7 +1,11 @@
 <?php
 class DAO_RSS implements DAO
 {
-    function requete($xml)
+    /**
+     * function to request a xml
+     * @param string $xml
+     */
+    function requete(string $xml)
     {
         // $xmlObject = file_get_contents($xml);
         // $xmlObject = str_replace('media:content', 'mediaContent', $xmlObject);

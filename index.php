@@ -28,12 +28,3 @@ if ($arg){
 }
 
 exit;
-
-/* if(isset($_GET['p']) && $_GET['p'] == "form"){
-    $ctrl = new CtrlContact();
-    $ctrl->getForm();
-} 
-elseif(isset($_GET['p']) && $_GET['p'] == "enregistrer"){
-    $ctrl = new CtrlContact();
-    $ctrl->enregForm();
-}  */

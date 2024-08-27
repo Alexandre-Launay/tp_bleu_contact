@@ -1,11 +1,18 @@
 <?php
 class Session
 {
-    public static function setUser($u)
+    /**
+     * Function used to set the user in the session
+     * @param object $u
+     */
+    public static function setUser(object $u)
     {
         $_SESSION['user'] = serialize($u);
     }
 
+    /**
+     * Function used to get the user in the session
+     */
     public static function getUser()
     {
         if (isset($_SESSION['user'])) {
@@ -15,12 +22,19 @@ class Session
         }
     }
 
+    /**
+     * Function used to destroy the user in the session
+     */
     public static function destroyUser()
     {
         unset($_SESSION['user']);
     }
 
-    public static function getMeteo($heure = false)
+    /**
+     * Function used to set the meteo in the session
+     * @param bool $heure
+     */
+    public static function getMeteo(bool $heure = false)
     {
         if (isset($_SESSION['meteo'])) {
             $meteo = unserialize($_SESSION['meteo']);
@@ -33,11 +47,19 @@ class Session
             return false;
         }
     }
-    public static function setMeteo($meteo)
+
+    /**
+     * Function used to set the meteo in the session
+     * @param array $meteo
+     */
+    public static function setMeteo(array $meteo)
     {
         $_SESSION['meteo'] = serialize($meteo);
     }
 
+    /**
+     * Function used to destroy the meteo in the session
+     */
     public static function destroyMeteo()
     {
         unset($_SESSION['meteo']);
